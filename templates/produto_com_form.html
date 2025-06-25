@@ -1,36 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>{{ produto.nome }}</title>
+    <meta charset="UTF-8">
+    <title>Loja Virtual</title>
+    <style>
+        body {
+            background: #f0f0f0;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .produtos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .produto {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .produto img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .produto a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background: green;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Detalhes do Produto</h1>
-    <p><strong>Nome:</strong> {{ produto.nome }}</p>
-    <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
-    <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
-
-    <hr>
-
-    <h2>Adicionar Novo Produto</h2>
-    <form method="post">
-        Nome: <input type="text" name="nome" required><br>
-        Preço: <input type="text" name="preco" required><br>
-        Descrição: <input type="text" name="descricao" required><br>
-        <button type="submit">Cadastrar Produto</button>
-    </form>
-
-    <hr>
-
-    <h2>Todos os Produtos</h2>
-    <ul>
-        {% for p in todos_produtos %}
-            <li>
-                <strong>{{ p.nome }}</strong> - R$ {{ "%.2f"|format(p.preco) }}<br>
-                {{ p.descricao }}
-            </li>
+    <h1>Bem-vindo à nossa loja!</h1>
+    <div class="produtos">
+        {% for produto in produtos %}
+        <div class="produto">
+            <img src="{{ produto.imagem_url }}" alt="{{ produto.nome }}">
+            <h2>{{ produto.nome }}</h2>
+            <p>R$ {{ produto.preco }}</p>
+            <a href="{{ url_for('adicionar_ao_carrinho', produto_id=produto.id) }}">Comprar</a>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 
-    <br><a href="{{ url_for('index') }}">Voltar à loja</a>
+    <hr>
+    <h2 style="text-align: center;">Formas de pagamento:</h2>
+    <div style="text-align: center;">
+        <img src="https://i.imgur.com/YzG1mDf.png" alt="Pagamentos" width="300">
+        <!-- Use qualquer imagem com bandeiras: Visa, Mastercard, Pix, etc -->
+    </div>
 </body>
 </html>
