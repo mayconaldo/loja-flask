@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Loja Virtual</title>
+  <meta charset="UTF-8">
+  <title>Minha Loja</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("https://picsum.photos/1920/1080"); /* aqui vai sua imagem */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      padding-top: 20%;
+      font-size: 3em;
+      text-shadow: 2px 2px 5px black;
+    }
+  </style>
 </head>
 <body>
-    <h1>Produtos disponíveis</h1>
-    <ul>
-        {% for produto in produtos %}
-        <li>
-            <a href="{{ url_for('produto', produto_id=produto.id) }}">
-                {{ produto.nome }} - R$ {{ produto.preco }}
-            </a>
-            <a href="{{ url_for('adicionar_ao_carrinho', produto_id=produto.id) }}">[Comprar]</a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('ver_carrinho') }}">Ver Carrinho</a>
+  <h1>Bem-vindo à Loja Flask!</h1>
 </body>
 </html>
