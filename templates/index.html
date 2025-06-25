@@ -1,7 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>Loja Virtual</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://picsum.photos/1920/1080"); /* substitua com sua imagem */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 60%;
+            margin: 30px auto;
+        }
+
+        li {
+            background-color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Bem-vindo à nossa loja!</h1>
@@ -15,6 +58,8 @@
         </li>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('ver_carrinho') }}">Ver Carrinho</a>
+    <div style="text-align: center;">
+        <a href="{{ url_for('ver_carrinho') }}">Ver Carrinho</a>
+    </div>
 </body>
 </html>
