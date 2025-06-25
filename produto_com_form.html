@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ produto.nome }}</title>
+</head>
+<body>
+    <h1>Detalhes do Produto</h1>
+    <p><strong>Nome:</strong> {{ produto.nome }}</p>
+    <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+    <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+
+    <hr>
+
+    <h2>Adicionar Novo Produto</h2>
+    <form method="post">
+        Nome: <input type="text" name="nome" required><br>
+        Preço: <input type="text" name="preco" required><br>
+        Descrição: <input type="text" name="descricao" required><br>
+        <button type="submit">Cadastrar Produto</button>
+    </form>
+
+    <hr>
+
+    <h2>Todos os Produtos</h2>
+    <ul>
+        {% for p in todos_produtos %}
+            <li>
+                <strong>{{ p.nome }}</strong> - R$ {{ "%.2f"|format(p.preco) }}<br>
+                {{ p.descricao }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br><a href="{{ url_for('index') }}">Voltar à loja</a>
+</body>
+</html>
+

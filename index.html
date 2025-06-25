@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loja Virtual</title>
+</head>
+<body>
+    <h1>Produtos disponíveis</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <a href="{{ url_for('produto', produto_id=produto.id) }}">
+                {{ produto.nome }} - R$ {{ produto.preco }}
+            </a>
+            <a href="{{ url_for('adicionar_ao_carrinho', produto_id=produto.id) }}">[Comprar]</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('ver_carrinho') }}">Ver Carrinho</a>
+</body>
+</html>
+
