@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adicionar Produto</title>
+</head>
+<body>
+    <h1>Novo Produto</h1>
+    <form method="post">
+        Nome: <input type="text" name="nome"><br>
+        Preço: <input type="text" name="preco"><br>
+        Descrição: <input type="text" name="descricao"><br>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
