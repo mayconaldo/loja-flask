@@ -11,7 +11,15 @@ class Produto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100), nullable=False)
     preco = db.Column(db.Float, nullable=False)
-    descricao = db.Column(db.String(200), nullable=False)
+    descricao = db.Column(db.Text)
+    imagem_url = db.Column(db.String(255))
+
+#class Produto(db.Model):
+    
+#id = db.Column(db.Integer, primary_key=True)
+   # nome = db.Column(db.String(100), nullable=False)
+    #preco = db.Column(db.Float, nullable=False)
+    #descricao = db.Column(db.String(200), nullable=False)
 
 # Criar o banco de dados (executar 1x)
 #@app.before_first_request
@@ -95,12 +103,7 @@ def novo_produto():
 def home():
     return render_template("meusite.html")
 
-class Produto(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
-    preco = db.Column(db.Float, nullable=False)
-    descricao = db.Column(db.Text)
-    imagem_url = db.Column(db.String(255))
+
 
 if __name__ == "__main__":
     import os
